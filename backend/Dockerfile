@@ -9,8 +9,13 @@ ENV DB_PASSWORD=userpass
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
+
 RUN yarn install
 
+COPY . .
+
+RUN yarn build
+
 EXPOSE 8080
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "start:prod" ]

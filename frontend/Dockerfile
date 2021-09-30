@@ -1,10 +1,13 @@
 FROM node:alpine
 
 WORKDIR /app
-COPY . .
 
+COPY package*.json ./
 RUN yarn install
+
+COPY . .
+RUN yarn build
 
 EXPOSE 3000
 
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]

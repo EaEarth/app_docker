@@ -66,18 +66,12 @@ export const Edit = () => {
   const updateProfile = (payload) => {
     axios
       .post(`http://localhost:8080/api/user`, payload)
-      .then(function (response) {
+      .then(function () {
         router.push("/");
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function () {
+        router.push("/")
       });
-    // const instance = axios.create({
-    //   baseURL: `app_backend:8080/api`,
-    // });
-    // instance.post("/user", payload).then(() => {
-    //   router.push("/");
-    // });
   };
 
   return (
